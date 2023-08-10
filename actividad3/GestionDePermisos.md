@@ -31,6 +31,12 @@
     sudo passwd usuario2
     sudo passwd usuario3
     ~~~
+    Respuesta:
+    ~~~
+    New password:
+    Retype new password:
+    passwrd: password updated successfully
+    ~~~
 
 
 - ### 3 Información de Usuarios: 
@@ -38,12 +44,13 @@
     ~~~
     id usuario1
     ~~~
-
+    Respuesta:
+    ~~~
+    uid=1000(usuario1) gid=1000(usuario1) groups = 1000(usuario1)
+    ~~~
 - ### 4 Eliminación de Usuarios: 
     Elimina `usuario3`, pero conserva su directorio principal.
     ~~~
-    sudo mkdir /home/usuarios_backup
-    sudo mv /home/usuario3 /home/usuarios_backup/
     sudo userdel usuario3
     ~~~
 
@@ -69,13 +76,23 @@
     groups usuario1
     groups usuario2
     ~~~
+
+    Respuesta:
+    ~~~
+    usuario1: usuario1 grupo1
+    usuario2: usuario2 grupo2
+    ~~~
 - ### 4.Eliminar Grupo: 
   Elimina `grupo2`.
    
     ~~~
     sudo delgroup grupo2
     ~~~
-
+    Respuesta:
+    ~~~
+    Removing group `grupo2` ...
+    Done.
+    ~~~
 
 
 ## Parte 3: Gestión de Permisos
@@ -122,8 +139,32 @@
 
 - ¿Por qué es importante gestionar correctamente los usuarios y permisos en un sistema operativo?
 
-   \- Porque
+
+    Gestionar correctamente usuarios y permisos en un sistema operativo, especialmente en Linux, es fundamental por varias razones:
+
+    1. **Seguridad:** Controlar quién puede acceder, modificar y ejecutar archivos y programas es esencial para proteger los datos y el sistema. Los permisos incorrectos pueden llevar a brechas de seguridad y a la exposición de información sensible.
+
+    2. **Privacidad:** Los usuarios deben tener acceso solo a la información y recursos que sean relevantes para sus roles y responsabilidades. Una mala gestión de permisos podría permitir que usuarios no autorizados accedan a información confidencial.
+
+    3. **Integridad del sistema:** Limitar los cambios que los usuarios pueden realizar en el sistema evita modificaciones accidentales o maliciosas que podrían afectar su funcionamiento y estabilidad.
+
+    4. **Cumplimiento:** En entornos donde se maneja información confidencial o regulada, la gestión adecuada de usuarios y permisos es un requisito para cumplir con regulaciones de privacidad y seguridad.
+
+    5. **Control de recursos:** Permite asignar recursos (como espacio de almacenamiento) de manera equitativa entre los usuarios y prevenir el abuso de recursos.
+
+**Otros comandos y técnicas para gestionar permisos en Linux:**
 
 - ¿Qué otros comandos o técnicas conocen para gestionar permisos en Linux?
-   - respuesta 1
-   - respuesta 2
+
+  1. **`chown`:** Además de cambiar el propietario y el grupo, puedes usar el comando para cambiar solo el propietario o el grupo de un archivo o directorio.
+
+  2. **`chgrp`:** Cambia solo el grupo de un archivo o directorio.
+
+  3. **`umask`:** Configura los permisos predeterminados para nuevos archivos y directorios creados por un usuario.
+
+  4. **ACL (Access Control Lists):** Proporciona una forma más granular de controlar permisos, permitiendo definir múltiples usuarios y grupos con diferentes niveles de acceso en un solo archivo o directorio.
+
+  5. **`setfacl` y `getfacl`:** Utilizados para gestionar y visualizar ACLs.
+
+  6. **Archivos de configuración de permisos:** Como `/etc/permissions` y `/etc/sudoers`, que permiten configurar permisos y políticas de sudo de manera más global.
+
